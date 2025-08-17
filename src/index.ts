@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 // 🛡️ Security and utility middlewares
 app.use(express.json({limit: "20mb"}));
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "../dist")));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(
