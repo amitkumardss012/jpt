@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors({
-    origin: "*",
+    origin: "https://www.jptconstruction.in",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
 }));

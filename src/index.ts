@@ -28,11 +28,12 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "*",
+    origin: "https://www.jptconstruction.in",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
+
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000, //⌛ 15 minutes
