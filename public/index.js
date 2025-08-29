@@ -9,6 +9,7 @@ import connectDB from "./config/db.js";
 import { AdminRoute, EnquiryRoute } from "./routes/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import portfolioRoute from "./routes/portfolio.routes.js";
 // 🚀 Initialize express application
 const app = express();
 connectDB();
@@ -26,7 +27,7 @@ app.use(cors({
 }));
 app.use(rateLimit({
     windowMs: 15 * 60 * 1000, //⌛ 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    max: 1000, // limit each IP to 100 requests per windowMs
     message: {
         status: 429,
         message: "Too many requests, please try again later",
@@ -35,16 +36,17 @@ app.use(rateLimit({
     legacyHeaders: false,
 }));
 // 🩺 Health check endpoint
-// app.get("/", (_, res) => {
-//     res.json({
-//       message: "Server is up and running"
-//     });
-// });
+app.get("/", (_, res) => {
+    res.json({
+        message: "Server is up and running"
+    });
+});
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 app.use("/api/v1/admin", AdminRoute);
 app.use("/api/v1/enquiry", EnquiryRoute);
+app.use("/api/v1/portfolio", portfolioRoute);
 // ⚠️ Global error handling middleware
 app.use(errorMiddleware);
 app.listen(ENV.PORT, () => {

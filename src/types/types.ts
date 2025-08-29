@@ -15,4 +15,10 @@ export enum statusCode {
   
     // status code start with 500
     Internal_Server_Error = 500,
-  }
+}
+  
+
+export interface ImageType {
+  public_id: string;
+  secure_url: string;
+}

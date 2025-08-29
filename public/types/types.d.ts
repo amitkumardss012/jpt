@@ -10,4 +10,8 @@ export declare enum statusCode {
     Conflict = 409,
     Internal_Server_Error = 500
 }
+export interface ImageType {
+    public_id: string;
+    secure_url: string;
+}
 //# sourceMappingURL=types.d.ts.map
