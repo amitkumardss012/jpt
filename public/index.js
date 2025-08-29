@@ -21,8 +21,9 @@ app.use(express.static(path.join(__dirname, "../dist")));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors({
-    origin: "https://www.jptconstruction.in",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
 }));
 app.use(rateLimit({
@@ -36,11 +37,11 @@ app.use(rateLimit({
     legacyHeaders: false,
 }));
 // 🩺 Health check endpoint
-app.get("/", (_, res) => {
-    res.json({
-        message: "Server is up and running"
-    });
-});
+// app.get("/", (_, res) => {
+//     res.json({
+//       message: "Server is up and running"
+//     });
+// });
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
