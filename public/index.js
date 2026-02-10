@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://mtrrhomedecor.com"],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

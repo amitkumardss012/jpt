@@ -6,7 +6,7 @@ const ENV = {
     PORT: process.env.PORT,
     JWT_SECRET: process.env.JWT_SECRET,
     dbUrl: process.env.DATABASE_URL,
-    dbName: process.env.DATABASE_Name,
+    dbName: process.env.DATABASE_NAME,
     FRONTEND_URL: process.env.FRONTEND_URL,
     FRONTEND_URL1: process.env.FRONTEND_URL1,
 
